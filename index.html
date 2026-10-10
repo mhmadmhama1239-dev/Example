@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Levant Trade — a sample food sourcing and export company website showcasing product categories and trade enquiry services.">
+<meta name="theme-color" content="#173f35">
+<title>Levant Trade | Quality Products, Global Connections</title>
+
+<style>
+:root {
+  --green: #173f35;
+  --green2: #245749;
+  --gold: #c8a66a;
+  --cream: #f6f4ee;
+  --ink: #202c27;
+  --muted: #68756e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+}
+a { text-decoration: none; color: inherit; }
+button, input, select, textarea { font: inherit; }
+.container { width: min(1100px, 90%); margin: auto; }
+header {
+  background: #fffefa;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e4dc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  color: var(--green);
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--gold); }
+nav { display: flex; gap: 22px; align-items: center; }
+nav a { font-size: 13px; font-weight: bold; }
+nav a:hover { color: #a47b3d; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--gold);
+  color: #172e27;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-dark { background: var(--green); color: white; }
+.hero {
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(12,38,31,.96), rgba(12,38,31,.72)),
+    url("https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+  padding: 115px 0;
+}
+.eyebrow {
+  color: #b18c51;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.hero .eyebrow { color: #dfc58e; }
+h1, h2, h3 { line-height: 1.2; }
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 7vw, 68px);
+  max-width: 720px;
+  margin: 20px 0;
+}
+h1 em, h2 em { color: var(--gold); }
+.hero p:not(.eyebrow) {
+  color: #e0e6e1;
+  max-width: 570px;
+}
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.btn-outline { border: 1px solid white; color: white; padding: 11px 19px; }
+.notice { font-size: 11px; color: #aaa; margin-top: 25px; }
+.trust {
+  background: var(--cream);
+  padding: 22px 0;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.trust strong, .trust small { display: block; }
+.trust strong { font-size: 14px; }
+.trust small { color: var(--muted); font-size: 12px; }
+section.content { padding: 75px 0; }
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+h2 {
+  font: 40px Georgia, serif;
+  margin: 10px 0;
+}
+.muted { color: var(--muted); }
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.card {
+  border: 1px solid #e6e5de;
+  background: white;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px #173f3515;
+}
+.product-art {
+  height: 210px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 75px;
+}
+.olive { background: linear-gradient(135deg,#a6a56a,#34472e); }
+.dates { background: linear-gradient(135deg,#c58b5e,#573226); }
+.spices { background: linear-gradient(135deg,#a3ad79,#2e493c); }
+.nuts { background: linear-gradient(135deg,#d5b98a,#795236); }
+.card-body { padding: 22px; }
+.tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #a17d43;
+  font-weight: bold;
+}
+.card h3 { font: 23px Georgia, serif; margin: 10px 0; }
+.card p { font-size: 13px; color: var(--muted); }
+.text-link { color: var(--green); font-size: 13px; font-weight: bold; }
+.dark-section {
+  background: var(--green);
+  color: white;
+  padding: 65px 0;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.dark-section p { color: #d3ded7; }
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service {
+  border: 1px solid #e6e5de;
+  padding: 25px;
+  background: #fffefa;
+}
+.number { color: #a17d43; font-weight: bold; }
+.service h3 { font: 23px Georgia, serif; }
+.service p { color: var(--muted); font-size: 13px; }
+.about-box {
+  background: var(--cream);
+  padding: 35px;
+}
+form {
+  display: grid;
+  gap: 15px;
+  max-width: 680px;
+}
+label { font-size: 13px; font-weight: bold; }
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d8d9d0;
+  background: white;
+  margin-top: 6px;
+}
+textarea { resize: vertical; }
+#status { font-size: 13px; }
+footer {
+  background: #102d26;
+  color: white;
+  padding: 35px 0 20px;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+footer p, footer a { color: #c4d0c8; font-size: 12px; }
+footer a { margin-right: 14px; }
+.disclaimer { font-size: 10px; color: #aebbb2; }
+
+@media(max-width:700px) {
+  .nav { align-items: flex-start; flex-direction: column; gap: 12px; }
+  nav { gap: 15px; flex-wrap: wrap; }
+  nav a { font-size: 12px; }
+  .hero { padding: 80px 0; }
+  .trust-grid, .products, .services, .two-col {
+    grid-template-columns: 1fr;
+  }
+  section.content { padding: 52px 0; }
+  .heading { align-items: flex-start; flex-direction: column; }
+  h2 { font-size: 33px; }
+  .product-art { height: 190px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">LEVANT<span>TRADE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <p class="eyebrow">FOOD SOURCING • TRADE • EXPORT</p>
+    <h1>Connecting quality products to <em>global markets.</em></h1>
+    <p>Discover a thoughtful approach to product sourcing, trade enquiries and business connections across regional and international markets.</p>
+    <div class="buttons">
+      <a class="btn" href="#products">Explore Products ↗</a>
+      <a class="btn-outline" href="#contact">Request a Quote</a>
+    </div>
+    <p class="notice">Illustrative company concept created for a web design portfolio.</p>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container trust-grid">
+    <div><strong>✳ Carefully Selected</strong><small>Product-focused sourcing</small></div>
+    <div><strong>◇ Clear Communication</strong><small>Business-first approach</small></div>
+    <div><strong>↗ Global Outlook</strong><small>Trade enquiry support</small></div>
+  </div>
+</div>
+
+<section class="content container" id="products">
+  <div class="heading">
+    <div>
+      <p class="eyebrow">OUR CATALOGUE</p>
+      <h2>Products with <em>purpose.</em></h2>
+      <p class="muted">Explore our sample product categories.</p>
+    </div>
+  </div>
+  <div class="products">
+    <article class="card">
+      <div class="product-art olive">◉</div>
+      <div class="card-body">
+        <span class="tag">OILS & PANTRY</span>
+        <h3>Extra Virgin Olive Oil</h3>
+        <p>A regional pantry staple presented for wholesale enquiries and product sourcing discussions.</p>
+        <a class="text-link" href="#contact" data-product="Extra Virgin Olive Oil">Enquire about this product →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="product-art dates">✳</div>
+      <div class="card-body">
+        <span class="tag">NATURAL SWEETS</span>
+        <h3>Premium Dates</h3>
+        <p>A sample product listing for retailers, distributors and food-service businesses.</p>
+        <a class="text-link" href="#contact" data-product="Premium Dates">Enquire about this product →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="product-art spices">❋</div>
+      <div class="card-body">
+        <span class="tag">HERBS & SPICES</span>
+        <h3>Herbs & Spices</h3>
+        <p>A versatile category for buyers exploring culinary herbs and regional spice blends.</p>
+        <a class="text-link" href="#contact" data-product="Herbs & Spices">Enquire about this product →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="product-art nuts">✺</div>
+      <div class="card-body">
+        <span class="tag">NUTS & DRIED FRUIT</span>
+        <h3>Mixed Nuts</h3>
+        <p>An illustrative catalogue item for specialty shops and wholesale distributors.</p>
+        <a class="text-link" href="#contact" data-product="Mixed Nuts">Enquire about this product →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="dark-section" id="about">
+  <div class="container two-col">
+    <div>
+      <p class="eyebrow">ABOUT LEVANT TRADE</p>
+      <h2>Good business begins with <em>trust.</em></h2>
+    </div>
+    <div>
+      <p>Levant Trade is a fictional food sourcing and export company concept. This website demonstrates how a business can present its product categories, explain its approach and guide prospective buyers towards a clear enquiry.</p>
+      <p>Our proposed approach is built around clarity, thoughtful presentation and practical communication.</p>
+      <a class="btn" href="#contact">Start a Conversation ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="content container" id="services">
+  <div class="heading">
+    <div>
+      <p class="eyebrow">WHAT WE DO</p>
+      <h2>Support for your <em>trade needs.</em></h2>
+    </div>
+  </div>
+  <div class="services">
+    <article class="service">
+      <span class="number">01 / SOURCING</span>
+      <h3>Product Sourcing</h3>
+      <p>Explore product categories and describe the specifications your business needs.</p>
+    </article>
+    <article class="service">
+      <span class="number">02 / PACKAGING</span>
+      <h3>Packaging Coordination</h3>
+      <p>Discuss illustrative packaging preferences for retail, bulk or food-service needs.</p>
+    </article>
+    <article class="service">
+      <span class="number">03 / ENQUIRIES</span>
+      <h3>Trade Enquiries</h3>
+      <p>Share your requirements through a straightforward business enquiry form.</p>
+    </article>
+  </div>
+</section>
+
+<section class="content" id="contact">
+  <div class="container two-col">
+    <div>
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h2>Let's discuss your <em>requirements.</em></h2>
+      <p class="muted">Tell us which product category interests you and what information you need.</p>
+      <div class="about-box">
+        <strong>Portfolio demonstration</strong>
+        <p class="muted">The company and product details on this website are fictional and used to demonstrate web design and development skills.</p>
+      </div>
+    </div>
+    <div>
+      <form id="enquiry-form">
+        <label>Full name
+          <input name="name" required minlength="2" placeholder="Your name">
+        </label>
+        <label>Business email
+          <input name="email" type="email" required placeholder="you@company.com">
+        </label>
+        <label>Product interest
+          <select name="product" id="product">
+            <option value="">Choose a category</option>
+            <option>Extra Virgin Olive Oil</option>
+            <option>Premium Dates</option>
+            <option>Herbs & Spices</option>
+            <option>Mixed Nuts</option>
+            <option>General enquiry</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea name="message" required minlength="10" rows="4" placeholder="Tell us about your requirements"></textarea>
+        </label>
+        <button class="btn btn-dark" type="submit">Validate Enquiry ↗</button>
+        <p id="status" role="status"></p>
+        <p class="disclaimer">Demo form only. No data is sent or stored.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <div><a class="logo" href="#home" style="color:white">LEVANT<span>TRADE</span></a><p>Quality • Trust • Connection</p></div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <hr style="border-color:#ffffff25;margin-top:25px">
+    <p>© <span id="year"></span> Levant Trade — Portfolio Concept.</p>
+    <p class="disclaimer">Fictional company concept. Product availability, certifications and export operations have not been verified.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.querySelectorAll("[data-product]").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("product").value = link.dataset.product;
+  });
+});
+
+document.getElementById("enquiry-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+  document.getElementById("status").textContent =
+    "Demo validation successful. No information was sent or stored.";
+  this.reset();
+});
+</script>
+</body>
+</html>
